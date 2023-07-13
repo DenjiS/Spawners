@@ -12,11 +12,6 @@ public class EnemySpawner : MonoBehaviour
 
     private bool _isSpawning;
 
-    private void OnValidate()
-    {
-        
-    }
-
     private void Awake()
     {
         _spawnPoints = GetComponentsInChildren<SpawnPoint>();
