@@ -6593,7 +6593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794282539103275997, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (1)
+      value: SpawnPoint (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8217,7 +8217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794282539103275997, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (4)
+      value: SpawnPoint (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10308,7 +10308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794282539103275997, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (3)
+      value: SpawnPoint (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11534,7 +11534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794282539103275997, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (5)
+      value: SpawnPoint (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13544,7 +13544,7 @@ GameObject:
   - component: {fileID: 1911714311}
   - component: {fileID: 1911714312}
   m_Layer: 0
-  m_Name: Spawners
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13583,6 +13583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290dc7ff1db83bb4bb0b01a073320c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _template: {fileID: 4143011249460774974, guid: 45288819fde2143449a96207b14db0bb, type: 3}
   _sleepDuration: 2
 --- !u!1001 &1917980804
 PrefabInstance:
@@ -14414,7 +14415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794282539103275997, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_Name
-      value: EnemySpawner (2)
+      value: SpawnPoint (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14808,19 +14809,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9425562
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.33404765
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14828,7 +14829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 39.029
       objectReference: {fileID: 0}
     - target: {fileID: 5222873318508966727, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -14836,7 +14837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794282539103275997, guid: fc4798dfa8a9dbd4fbc2bcdd69a6acf5, type: 3}
       propertyPath: m_Name
-      value: EnemySpawner
+      value: SpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
