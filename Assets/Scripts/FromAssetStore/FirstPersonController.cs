@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody _rigidbody;
 
     #region Camera Movement Variables
 
@@ -131,9 +131,11 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
+    private Gun _gun;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
 
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -147,6 +149,8 @@ public class FirstPersonController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
+
+        _gun = GetComponentInChildren<Gun>();
     }
 
     void Start()
@@ -362,6 +366,15 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+
+        #region Shooting
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            _gun.Shoot();
+        }
+
+        #endregion
     }
 
     void FixedUpdate()
@@ -390,7 +403,7 @@ public class FirstPersonController : MonoBehaviour
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
 
                 // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.velocity;
+                Vector3 velocity = _rigidbody.velocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
@@ -413,7 +426,7 @@ public class FirstPersonController : MonoBehaviour
                     }
                 }
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
             }
             // All movement calculations while walking
             else
@@ -428,13 +441,13 @@ public class FirstPersonController : MonoBehaviour
                 targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
 
                 // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.velocity;
+                Vector3 velocity = _rigidbody.velocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
                 velocityChange.y = 0;
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
             }
         }
 
@@ -464,7 +477,7 @@ public class FirstPersonController : MonoBehaviour
         // Adds force to the player rigidbody to jump
         if (isGrounded)
         {
-            rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
+            _rigidbody.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
         }
 
