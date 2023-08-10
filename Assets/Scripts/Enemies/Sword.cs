@@ -1,13 +1,18 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Sword : MonoBehaviour
 {
-    [SerializeField] AudioSource _attackSound;
+    AudioSource _attackSound;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Awake()
     {
+        _attackSound = GetComponent<AudioSource>();
+    }
 
-        if (collision.transform.TryGetComponent(out Player player))
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.transform.TryGetComponent(out PlayerHealth player))
         {
             _attackSound.Play();
             player.TakeDamage();

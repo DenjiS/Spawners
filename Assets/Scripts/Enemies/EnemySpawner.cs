@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy _template;
     [SerializeField] private float _sleepDuration;
+    [SerializeField] private int _enemiesAmount;
 
     private SpawnPoint[] _spawnPoints;
     private WaitForSeconds _sleep;
@@ -34,7 +35,9 @@ public class EnemySpawner : MonoBehaviour
         while (_isSpawning)
         {
             Transform enemyTransform = _spawnPoints[_currentSpawnerNumber].transform;
-            Instantiate(_template, enemyTransform.position, enemyTransform.rotation);
+
+            if (_enemiesAmount-- > 0)
+                Instantiate(_template, enemyTransform.position, enemyTransform.rotation);
 
             if (++_currentSpawnerNumber >= _spawnPoints.Length)
                 _currentSpawnerNumber = 0;

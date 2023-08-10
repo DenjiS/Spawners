@@ -8,7 +8,7 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     private void Start()
     {
-        _playerTransform = FindAnyObjectByType<Player>().transform;
+        _playerTransform = FindAnyObjectByType<PlayerHealth>().transform;
     }
 
     private void Update()

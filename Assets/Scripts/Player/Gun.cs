@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.VFX;
 
+[RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
@@ -11,17 +11,20 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _shotMoveTime = 0.3f;
     [SerializeField] private float _shotedGunXRotation = -45;
 
+    private AudioSource _sound;
     private Sequence _shotAnimationSequence;
     private Vector3 _shootedRotation;
 
     private void Awake()
     {
-        _shootedRotation = new Vector3(_shotedGunXRotation, 0, 0);
+        _sound = GetComponent<AudioSource>();
 
+        _shootedRotation = new Vector3(_shotedGunXRotation, 0, 0);
     }
 
     public void Shoot()
     {
+        _sound.Play();
         _shotParticles.Play();
 
         _shotAnimationSequence = DOTween.Sequence();

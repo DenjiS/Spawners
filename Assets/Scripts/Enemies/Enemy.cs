@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyFollowPlayer))]
 public class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] AudioSource _dieSound;
+    [SerializeField] private AudioSource _dieSound;
+    [SerializeField] private ParticleSystem _particles;
     [SerializeField] private float _secondsToDestroy;
 
     private Animator _animator;
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.TryGetComponent(out Player player))
+        if (collision.transform.TryGetComponent(out PlayerHealth player))
         {
             _animator.SetBool("isNearPlayer", true);
         }
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.transform.TryGetComponent(out Player player))
+        if (collision.transform.TryGetComponent(out PlayerHealth player))
         {
             _animator.SetBool("isNearPlayer", false);
         }
@@ -41,7 +42,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void GetDamage()
     {
-        StartCoroutine(DestroyDelay());
+        if (_follower.enabled)
+        {
+            _particles.Play();
+            StartCoroutine(DestroyDelay());
+        }
     }
 
     private IEnumerator DestroyDelay()
